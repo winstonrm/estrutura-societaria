@@ -2,23 +2,24 @@ package com.montreal.banco;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 
-import com.montreal.banco.dto.Empresa;
-import com.montreal.banco.dto.EstruturaSocietaria;
-import com.montreal.banco.dto.PessoaFisica;
-import com.montreal.banco.dto.PessoaJuridica;
+import com.montreal.banco.model.Empresa;
+import com.montreal.banco.model.PessoaFisica;
+import com.montreal.banco.model.PessoaJuridica;
+import com.montreal.banco.service.EstruturaSocietariaService;
 
 @SpringBootApplication
-public class TestePraticoMontrealApplication {
+public class PraticoMontrealApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TestePraticoMontrealApplication.class, args);
+		ApplicationContext applicationContext = SpringApplication.run(PraticoMontrealApplication.class, args);
 
-		EstruturaSocietaria estruturaSocietaria = new EstruturaSocietaria();
-
+		EstruturaSocietariaService estruturaSocietaria = applicationContext.getBean(EstruturaSocietariaService.class);
+		
 		// Criando acionistas
-		PessoaFisica acionista1 = new PessoaFisica("João Silva", "123.456.789-10");
-		PessoaJuridica acionista2 = new PessoaJuridica("Empresa LTDA", "98.765.432/0001-01");
+		PessoaFisica acionista1 = new PessoaFisica("João Raimundo", "123.456.789-10");
+		PessoaJuridica acionista2 = new PessoaJuridica("Empresa Teste LTDA", "98.765.432/0001-01");
 
 		// Adicionando valores de imóveis aos acionistas
 		acionista1.adicionarValorImovel(100000.0);
@@ -45,7 +46,7 @@ public class TestePraticoMontrealApplication {
 		estruturaSocietaria.adicionarEmpresa(empresa2);
 
 		// Calculando o comprometimento financeiro total
-		Double total = estruturaSocietaria.comprometimentoFinanceiro(estruturaSocietaria);
+		Double total = estruturaSocietaria.comprometimentoFinanceiro();
 		System.out.println("Comprometimento financeiro total: " + total);
 	}
 }

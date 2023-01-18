@@ -1,4 +1,4 @@
-package com.montreal.banco.dto;
+package com.montreal.banco.model;
 
 public class PessoaJuridica extends Acionista {
     private String cnpj;

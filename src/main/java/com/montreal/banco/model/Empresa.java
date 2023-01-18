@@ -1,4 +1,4 @@
-package com.montreal.banco.dto;
+package com.montreal.banco.model;
 
 import java.util.HashSet;
 import java.util.Set;
