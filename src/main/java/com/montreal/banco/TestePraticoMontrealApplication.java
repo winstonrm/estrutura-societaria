@@ -45,7 +45,7 @@ public class TestePraticoMontrealApplication {
 		estruturaSocietaria.adicionarEmpresa(empresa2);
 
 		// Calculando o comprometimento financeiro total
-		Double total = estruturaSocietaria.comprometimentoFinanceiro();
+		Double total = estruturaSocietaria.comprometimentoFinanceiro(estruturaSocietaria);
 		System.out.println("Comprometimento financeiro total: " + total);
 	}
 }
