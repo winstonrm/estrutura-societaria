@@ -7,7 +7,7 @@ passando como parâmetro a sua estrutura societária.
 # Requisitos de Negócio:
 - A estrutura societária de uma empresa é sempre composta por ao menos uma pessoa
 física e pode ser composta por mais pessoas físicas e/ou jurídicas.
-Pode haver ciclo societário, ou seja, a empresa A pode ser sócia da empresa B e a empresa
+Pode haver ciclo societário, ou seja, a empresa A pode ser sócia da empresa B e a empresa A
 - Pode vir a ser sócia da empresa A. Inclusive, a empresa A pode vir a ser sócia dela
 mesma. Além disso, qualquer pessoa física ou jurídica pode ser sócia de mais de uma
 empresa.
