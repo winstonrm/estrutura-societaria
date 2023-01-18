@@ -49,24 +49,11 @@ public class EstruturaSocietariaServiceImpl implements EstruturaSocietariaServic
 		for (Empresa empresa : empresas) {
 			total += empresa.getValorTotalImoveis();
 
-			for (Acionista acionista : empresa.getAcionistas()) {
-				String identificacao = acionista.getIdentificacao();
-
-				if (!listaIdentificacoes.contains(identificacao)) {
-					listaIdentificacoes.add(identificacao);
-					total += acionista.getValorTotalImoveis();
-				}
-			}
+			total = somaValorTotalImoveisAcionistas(total, listaIdentificacoes, empresa.getAcionistas());
 		}
 
-		for (Acionista acionista : acionistas) {
-			String identificacao = acionista.getIdentificacao();
+		total = somaValorTotalImoveisAcionistas(total, listaIdentificacoes, acionistas);
 
-			if (!listaIdentificacoes.contains(identificacao)) {
-				listaIdentificacoes.add(identificacao);
-				total += acionista.getValorTotalImoveis();
-			}
-		}
 		return total;
 	}
 
@@ -77,17 +64,16 @@ public class EstruturaSocietariaServiceImpl implements EstruturaSocietariaServic
 		for (Empresa empresa : estruturaSocietariaServiceImpl.getEmpresas()) {
 			total += empresa.getValorTotalImoveis();
 
-			for (Acionista acionista : empresa.getAcionistas()) {
-				String identificacao = acionista.getIdentificacao();
-
-				if (!listaIdentificacoes.contains(identificacao)) {
-					listaIdentificacoes.add(identificacao);
-					total += acionista.getValorTotalImoveis();
-				}
-			}
+			total = somaValorTotalImoveisAcionistas(total, listaIdentificacoes, empresa.getAcionistas());
 		}
 
-		for (Acionista acionista : estruturaSocietariaServiceImpl.getAcionistas()) {
+		total = somaValorTotalImoveisAcionistas(total, listaIdentificacoes, acionistas);
+
+		return total;
+	}
+
+	private Double somaValorTotalImoveisAcionistas(Double total, Set<String> listaIdentificacoes, Set<Acionista> acionistas) {
+		for (Acionista acionista : acionistas) {
 			String identificacao = acionista.getIdentificacao();
 
 			if (!listaIdentificacoes.contains(identificacao)) {
@@ -97,7 +83,5 @@ public class EstruturaSocietariaServiceImpl implements EstruturaSocietariaServic
 		}
 		return total;
 	}
-
-
 
 }

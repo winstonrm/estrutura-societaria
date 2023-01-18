@@ -16,7 +16,7 @@ public class PraticoMontrealApplication {
 		ApplicationContext applicationContext = SpringApplication.run(PraticoMontrealApplication.class, args);
 
 		EstruturaSocietariaService estruturaSocietaria = applicationContext.getBean(EstruturaSocietariaService.class);
-		
+
 		// Criando acionistas
 		PessoaFisica acionista1 = new PessoaFisica("João Raimundo", "123.456.789-10");
 		PessoaJuridica acionista2 = new PessoaJuridica("Empresa Teste LTDA", "98.765.432/0001-01");
