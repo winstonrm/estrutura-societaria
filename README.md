@@ -4,6 +4,9 @@ Dessa forma posso garantir que ela não se repetirá, pois ela guardará uma ref
    WeakReference<Empresa> weakRef = empresa1.empresas.iterator().next();
         Empresa empresa = weakRef.get();
 
+# Pendente
+Refatoração da Classe EstruturaSocietariaService e EstruturaSocietariaServiceImpl
+
 # bugs
 Não está totalizando o valor da Empresa quando ela é acionista de outra Empresa
 
