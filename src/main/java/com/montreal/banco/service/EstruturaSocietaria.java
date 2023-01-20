@@ -70,7 +70,7 @@ public class EstruturaSocietaria implements EstruturaSocietariaService {
 		return total;
 	}
 
-	private Double somaValorTotalImoveisAcionistas(Double total, Set<String> listaIdentificacoes, Set<Acionista> acionistas) {
+	public Double somaValorTotalImoveisAcionistas(Double total, Set<String> listaIdentificacoes, Set<Acionista> acionistas) {
 		for (Acionista acionista : acionistas) {
 			String identificacao = acionista.getIdentificacao();
 

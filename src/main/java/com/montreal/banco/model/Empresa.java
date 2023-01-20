@@ -9,6 +9,8 @@ public class Empresa {
 	
 	private String nome;
 	private Double valorTotalImoveis;
+	// Solução encontrada para evitar Referencia Circular. Como o propósito seria somente guardar ela mesma, 
+	//e não resgatar na memória no futuro, optei por utilizar o WeakReference
 	private Set<WeakReference<Empresa>> empresas;
 	private Set<Acionista> acionistasPFePJ;
 
