@@ -8,6 +8,8 @@ public interface EstruturaSocietariaService {
 
 	public void adicionarAcionista(Acionista acionista);
 	
+	public void adicionarEmpresaPrincipal(Empresa empresa);
+	
 	public Double comprometimentoFinanceiro();
 	
 }

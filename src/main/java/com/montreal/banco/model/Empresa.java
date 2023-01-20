@@ -1,18 +1,31 @@
 package com.montreal.banco.model;
 
+import java.lang.ref.WeakReference;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
 public class Empresa {
+	
 	private String nome;
 	private Double valorTotalImoveis;
+	private Set<WeakReference<Empresa>> empresas;
 	private Set<Acionista> acionistas;
 
 	public Empresa(String nome) {
 		this.nome = nome;
 		this.valorTotalImoveis = 0.0;
+		this.empresas = new HashSet<>();
 		this.acionistas = new HashSet<>();
+	}
+
+	public Set<WeakReference<Empresa>> getEmpresas() {
+		return empresas;
+	}
+    
+	public void adicionarEmpresa(Empresa empresa) {
+		empresas.add(new WeakReference<Empresa>(empresa));
+		
 	}
 
 	public void adicionarAcionista(Acionista acionista) {
@@ -29,14 +42,6 @@ public class Empresa {
 
 	public Set<Acionista> getAcionistas() {
 		return acionistas;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
 	}
 
 	public void setValorTotalImoveis(Double valorTotalImoveis) {
@@ -69,6 +74,12 @@ public class Empresa {
 	public String toString() {
 		return "Empresa [nome=" + nome + ", valorTotalImoveis=" + valorTotalImoveis + ", acionistas=" + acionistas
 				+ "]";
+	}
+
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		// TODO Auto-generated method stub
+		return super.clone();
 	}
 
 }
