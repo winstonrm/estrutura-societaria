@@ -1,12 +1,9 @@
-package com.montreal.banco.service;
+package com.montreal.banco.model;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import com.montreal.banco.model.Acionista;
-import com.montreal.banco.model.Empresa;
-
-public class EstruturaSocietaria implements EstruturaSocietariaService {
+public class EstruturaSocietaria {
 	private Set<Empresa> empresas;
 	private Set<Acionista> acionistas;
 
@@ -58,7 +55,8 @@ public class EstruturaSocietaria implements EstruturaSocietariaService {
 	public Double comprometimentoFinanceiro(EstruturaSocietaria estruturaSocietaria) {
 		Double total = 0.0;
 		Set<String> listaIdentificacoes = new HashSet<>();
-
+		
+		// Listando as empresas e somando os valores de imóveis
 		for (Empresa empresa : estruturaSocietaria.getEmpresas()) {
 			total += empresa.getValorTotalImoveis();
 
@@ -73,7 +71,8 @@ public class EstruturaSocietaria implements EstruturaSocietariaService {
 	public Double somaValorTotalImoveisAcionistas(Double total, Set<String> listaIdentificacoes, Set<Acionista> acionistas) {
 		for (Acionista acionista : acionistas) {
 			String identificacao = acionista.getIdentificacao();
-
+			
+			// Verifica se já existe
 			if (!listaIdentificacoes.contains(identificacao)) {
 				listaIdentificacoes.add(identificacao);
 				total += acionista.getValorTotalImoveis();

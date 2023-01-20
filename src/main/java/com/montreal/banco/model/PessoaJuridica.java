@@ -1,5 +1,8 @@
 package com.montreal.banco.model;
 
+import lombok.Data;
+
+@Data
 public class PessoaJuridica extends Acionista {
     private String cnpj;
 

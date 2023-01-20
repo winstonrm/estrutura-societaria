@@ -5,6 +5,9 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+import lombok.Data;
+
+@Data
 public class Empresa {
 	
 	private String nome;

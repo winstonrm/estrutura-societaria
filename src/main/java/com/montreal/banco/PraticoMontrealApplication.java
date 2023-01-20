@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.montreal.banco.model.Empresa;
+import com.montreal.banco.model.EstruturaSocietaria;
 import com.montreal.banco.model.PessoaFisica;
 import com.montreal.banco.model.PessoaJuridica;
-import com.montreal.banco.service.EstruturaSocietaria;
 
 @SpringBootApplication
 public class PraticoMontrealApplication {

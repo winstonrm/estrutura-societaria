@@ -7,9 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import com.montreal.banco.model.Empresa;
+import com.montreal.banco.model.EstruturaSocietaria;
 import com.montreal.banco.model.PessoaFisica;
 import com.montreal.banco.model.PessoaJuridica;
-import com.montreal.banco.service.EstruturaSocietaria;
 
 public class EstruturaSocietariaTest {
 
