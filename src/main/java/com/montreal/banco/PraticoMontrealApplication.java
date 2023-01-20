@@ -50,22 +50,20 @@ public class PraticoMontrealApplication {
 
 
 			// Empresa 1
-			// Adicionando valores de imóveis às empresas			
+			// Adicionando valores de imóveis à empresa			
 			empresaService.adicionarValorImovel(empresa1, 300.0);
-
 			// Adicionando acionistas do tipo Empresa
 			empresaService.adicionarEmpresa(empresa1, empresa1);	
 			// Adicionando acionistas às empresas
 			empresaService.adicionarAcionista(empresa1, acionistaPj); 
 			empresaService.adicionarAcionista(empresa1, acionistaPf); 
-
 			// Adicionando a Empresa 1 a uma EstruturaSocietária
 			//estruturaSocietaria.adicionarEmpresa(empresa1);
 			estrutSocietEmp1.adicionarEmpresa(empresa1);
 
 
 			// Empresa 2
-			// Adicionando valores de imóveis às empresas		
+			// Adicionando valores de imóveis à empresa		
 			empresaService.adicionarValorImovel(empresa2, 400.0);		
 			// Adicionando acionistas do tipo Empresa
 			// bug: valor da empresa1 não está sendo contabilizado 
@@ -73,7 +71,6 @@ public class PraticoMontrealApplication {
 			// Adicionando acionistas às empresas
 			empresaService.adicionarAcionista(empresa2, acionistaPf);
 			empresaService.adicionarAcionista(empresa2, acionistaPj);
-
 			// Adicionando a Empresa 2 a uma EstruturaSocietária
 			//estruturaSocietaria.adicionarEmpresa(empresa2);
 			estrutSocietEmp2.adicionarEmpresa(empresa2);
