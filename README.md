@@ -8,7 +8,7 @@ Dessa forma posso garantir que ela não se repetirá, pois ela guardará uma ref
 Refatoração da Classe EstruturaSocietariaService e EstruturaSocietariaServiceImpl
 
 # bugs
-Não está totalizando o valor da Empresa quando ela é acionista de outra Empresa
+Não está totalizando o valor da Empresa quando ela é acionista de outra Empresa (Resolvido)
 
 # Para validação de testes
 mvn test
