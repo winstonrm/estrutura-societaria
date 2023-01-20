@@ -1,3 +1,15 @@
+# Para validação do loop
+Quando uma empresa recebia ela mesma como acionista, ocorria uma Rerencia Circular, onde resolvi utilizando o WeakReference.
+Dessa forma posso garantir que ela não se repetirá, pois ela guardará uma referencia dela mesma, que só é possível acessar através do seguinte código:
+   WeakReference<Empresa> weakRef = empresa1.empresas.iterator().next();
+        Empresa empresa = weakRef.get();
+
+# bugs
+Não está totalizando o valor da Empresa quando ela é acionista de outra Empresa
+
+# Para validação de testes
+mvn test
+
 # Prova Prática Java – v4
 No Banco XPTO, para o cálculo do comprometimento financeiro de uma empresa, leva-se em 
 conta o total de bens imóveis desta empresa e de seus sócios. Escreva um método (e todas as classes 
