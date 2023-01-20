@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 
 public class ValidateCpfCnpj {
 
+	
 	public static boolean isCPF(String CPF) throws IllegalArgumentException  {
 		// considera-se erro CPF's formados por uma sequencia de numeros iguais
 		if (CPF.equals("00000000000") ||

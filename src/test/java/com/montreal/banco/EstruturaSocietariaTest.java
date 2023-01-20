@@ -63,7 +63,7 @@ public class EstruturaSocietariaTest {
 		estruturaSocietaria.adicionarEmpresa(empresa1);
 
 		// Calculando o comprometimento financeiro total	
-		Double result = estruturaSocietaria.comprometimentoFinanceiro();
+		Double result = estruturaSocietaria.comprometimentoFinanceiro(empresa1);
 
 		assertEquals(3000.0, result, 3000.0);
 	}
@@ -103,7 +103,7 @@ public class EstruturaSocietariaTest {
 		estruturaSocietaria.adicionarEmpresa(empresa1);
 
 		// Calculando o comprometimento financeiro total	
-		Double result = estruturaSocietaria.comprometimentoFinanceiro(estruturaSocietaria);
+		Double result = estruturaSocietaria.comprometimentoFinanceiro(empresa1);
 
 		assertEquals(6000.0, result, 6000.0);
 	}

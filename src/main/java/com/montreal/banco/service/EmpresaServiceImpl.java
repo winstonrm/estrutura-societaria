@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import com.montreal.banco.model.Acionista;
 import com.montreal.banco.model.Empresa;
 
-@Service
 public class EmpresaServiceImpl implements EmpresaService {
 
 	public Empresa criarEmpresa(String nome) {		
