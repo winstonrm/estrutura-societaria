@@ -2,21 +2,23 @@ package com.montreal.banco;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
 
 import com.montreal.banco.model.Empresa;
 import com.montreal.banco.model.PessoaFisica;
 import com.montreal.banco.model.PessoaJuridica;
-import com.montreal.banco.service.EstruturaSocietariaService;
+import com.montreal.banco.service.EstruturaSocietaria;
 
 @SpringBootApplication
 public class PraticoMontrealApplication {
-
+	
 	public static void main(String[] args) {
-		ApplicationContext applicationContext = SpringApplication.run(PraticoMontrealApplication.class, args);
-
-		EstruturaSocietariaService estruturaSocEmpresa = applicationContext.getBean(EstruturaSocietariaService.class);
-		//EstruturaSocietariaService estruturaSocEmpresa2 = applicationContext.getBean(EstruturaSocietariaService.class);
+		//ApplicationContext applicationContext = SpringApplication.run(PraticoMontrealApplication.class, args);
+		//EstruturaSocietariaService estruturaSocEmpresa = applicationContext.getBean(EstruturaSocietariaService.class);
+		
+		SpringApplication.run(PraticoMontrealApplication.class, args);
+		
+		EstruturaSocietaria estrutSocietEmp1 = new EstruturaSocietaria();
+		EstruturaSocietaria estrutSocietEmp2 = new EstruturaSocietaria();
 
 		// Criando acionistas
 		PessoaFisica acionistaPf = new PessoaFisica("João Raimundo", "123.456.789-10");
@@ -30,35 +32,34 @@ public class PraticoMontrealApplication {
 		Empresa empresa1 = new Empresa("Minha Empresa");
 		Empresa empresa2 = new Empresa("Empresa Parceira");
 
-		
+		// Empresa 1
 		// Adicionando valores de imóveis às empresas
 		empresa1.adicionarValorImovel(300000.0);
-		empresa2.adicionarValorImovel(900000.0);
-		
-		//EmpresaSocia empSocia = new empresa1.clone();
-		
+				
+		// Adicionando acionistas do tipo Empresa
 		empresa1.adicionarEmpresa(empresa1);
-		empresa1.adicionarEmpresa(empresa2);
-
+		empresa1.adicionarEmpresa(empresa2);		
 		// Adicionando acionistas às empresas
-		empresa1.adicionarAcionista(acionistaPf);
+		empresa1.adicionarAcionista(acionistaPf);			
+		// Adicionando a Empresa 1 a uma EstruturaSocietária
+		estrutSocietEmp1.adicionarEmpresa(empresa1);
+		
+		
+		// Empresa 2
+		// Adicionando valores de imóveis às empresas		
+		empresa2.adicionarValorImovel(400000.0);		
+		// Adicionando acionistas às empresas
+		empresa2.adicionarAcionista(acionistaPf);
 		empresa2.adicionarAcionista(acionistaPj);
-
-		// Adicionando acionistas à estrutura
-		estruturaSocEmpresa.adicionarEmpresaPrincipal(empresa1);
-		estruturaSocEmpresa.adicionarAcionista(acionistaPf);
-		estruturaSocEmpresa.adicionarAcionista(acionistaPj);
-		// Adicionando empresas à estrutura
-		estruturaSocEmpresa.adicionarEmpresa(empresa1);
+		// Adicionando a Empresa 2 a uma EstruturaSocietária
+		estrutSocietEmp2.adicionarEmpresa(empresa2);
 		
-		
-		estruturaSocEmpresa.adicionarEmpresaPrincipal(empresa2);
-		estruturaSocEmpresa.adicionarAcionista(acionistaPf);
-		estruturaSocEmpresa.adicionarEmpresa(empresa1);
 
-		Double total = 0.0;
+		// Calculando o comprometimento financeiro total	
+		System.out.println("Estrutura societária da Empresa 1: Comprometimento financeiro total: " + estrutSocietEmp1.comprometimentoFinanceiro());
+
 		// Calculando o comprometimento financeiro total
-		total = estruturaSocEmpresa.comprometimentoFinanceiro();
-		System.out.println("Estrutura 1: Comprometimento financeiro total: " + total);
+		System.out.println("Estrutura societária da Empresa 2: Comprometimento financeiro total: " + estrutSocietEmp2.comprometimentoFinanceiro());
+
 	}
 }

@@ -10,13 +10,13 @@ public class Empresa {
 	private String nome;
 	private Double valorTotalImoveis;
 	private Set<WeakReference<Empresa>> empresas;
-	private Set<Acionista> acionistas;
+	private Set<Acionista> acionistasPFePJ;
 
 	public Empresa(String nome) {
 		this.nome = nome;
 		this.valorTotalImoveis = 0.0;
 		this.empresas = new HashSet<>();
-		this.acionistas = new HashSet<>();
+		this.acionistasPFePJ = new HashSet<>();
 	}
 
 	public Set<WeakReference<Empresa>> getEmpresas() {
@@ -29,7 +29,7 @@ public class Empresa {
 	}
 
 	public void adicionarAcionista(Acionista acionista) {
-		acionistas.add(acionista);
+		acionistasPFePJ.add(acionista);
 	}
 
 	public void adicionarValorImovel(Double valor) {
@@ -41,7 +41,7 @@ public class Empresa {
 	}
 
 	public Set<Acionista> getAcionistas() {
-		return acionistas;
+		return acionistasPFePJ;
 	}
 
 	public void setValorTotalImoveis(Double valorTotalImoveis) {
@@ -49,12 +49,12 @@ public class Empresa {
 	}
 
 	public void setAcionistas(Set<Acionista> acionistas) {
-		this.acionistas = acionistas;
+		this.acionistasPFePJ = acionistas;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(acionistas, nome, valorTotalImoveis);
+		return Objects.hash(acionistasPFePJ, empresas, nome, valorTotalImoveis);
 	}
 
 	@Override
@@ -66,14 +66,15 @@ public class Empresa {
 		if (getClass() != obj.getClass())
 			return false;
 		Empresa other = (Empresa) obj;
-		return Objects.equals(acionistas, other.acionistas) && Objects.equals(nome, other.nome)
-				&& Objects.equals(valorTotalImoveis, other.valorTotalImoveis);
+		return Objects.equals(acionistasPFePJ, other.acionistasPFePJ) && Objects.equals(empresas, other.empresas)
+				&& Objects.equals(nome, other.nome) && Objects.equals(valorTotalImoveis, other.valorTotalImoveis);
 	}
 
 	@Override
 	public String toString() {
-		return "Empresa [nome=" + nome + ", valorTotalImoveis=" + valorTotalImoveis + ", acionistas=" + acionistas
-				+ "]";
+		return "Empresa [nome=" + nome + ", valorTotalImoveis=" + valorTotalImoveis + ", empresas=" + empresas
+				+ ", acionistas=" + acionistasPFePJ + "]";
 	}
+
 
 }
