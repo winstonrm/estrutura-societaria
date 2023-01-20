@@ -32,8 +32,6 @@ public class PraticoMontrealApplication {
 			String cnpjAcionistaPj = "36147793000113";
 			
 			//Estrutura societária para cada empresa.
-//			EstruturaSocietaria estrutSocietEmp1 = new EstruturaSocietaria();
-//			EstruturaSocietaria estrutSocietEmp2 = new EstruturaSocietaria();
 			EstruturaSocietaria estrutSocietEmp1 = estruturaSocietaria.criarEstrutura();
 			EstruturaSocietaria estrutSocietEmp2 = estruturaSocietaria.criarEstrutura();
 
@@ -70,7 +68,7 @@ public class PraticoMontrealApplication {
 			// Adicionando valores de imóveis às empresas		
 			empresaService.adicionarValorImovel(empresa2, 400.0);		
 			// Adicionando acionistas do tipo Empresa
-			
+			// bug: valor da empresa1 não está sendo contabilizado 
 			empresaService.adicionarEmpresa(empresa2, empresa1);
 			// Adicionando acionistas às empresas
 			empresaService.adicionarAcionista(empresa2, acionistaPf);
