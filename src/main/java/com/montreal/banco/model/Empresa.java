@@ -27,19 +27,6 @@ public class Empresa {
 	public Set<WeakReference<Empresa>> getEmpresas() {
 		return empresas;
 	}
-    
-	public void adicionarEmpresa(Empresa empresa) {
-		empresas.add(new WeakReference<Empresa>(empresa));
-		
-	}
-
-	public void adicionarAcionista(Acionista acionista) {
-		acionistasPFePJ.add(acionista);
-	}
-
-	public void adicionarValorImovel(Double valor) {
-		valorTotalImoveis += valor;
-	}
 
 	public Double getValorTotalImoveis() {
 		return valorTotalImoveis;

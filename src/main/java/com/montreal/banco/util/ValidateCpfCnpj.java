@@ -2,9 +2,9 @@ package com.montreal.banco.util;
 
 import java.util.InputMismatchException;
 
-public class Validate {
+public class ValidateCpfCnpj {
 
-	public static boolean isCPF(String CPF) {
+	public static boolean isCPF(String CPF) throws IllegalArgumentException  {
 		// considera-se erro CPF's formados por uma sequencia de numeros iguais
 		if (CPF.equals("00000000000") ||
 				CPF.equals("11111111111") ||
@@ -13,7 +13,9 @@ public class Validate {
 				CPF.equals("66666666666") || CPF.equals("77777777777") ||
 				CPF.equals("88888888888") || CPF.equals("99999999999") ||
 				(CPF.length() != 11))
-			return(false);
+			throw new IllegalArgumentException("CPF inválido");
+		
+			//return(false);
 
 		char dig10, dig11;
 		int sm, i, r, num, peso;
@@ -54,13 +56,15 @@ public class Validate {
 			// Verifica se os digitos calculados conferem com os digitos informados.
 			if ((dig10 == CPF.charAt(9)) && (dig11 == CPF.charAt(10)))
 				return(true);
-			else return(false);
-		} catch (InputMismatchException erro) {
-			return(false);
-		}
+			else 
+				//return(false);
+			throw new IllegalArgumentException("CPF inválido");
+        } catch (InputMismatchException erro) {
+            throw new IllegalArgumentException("CPF inválido");
+        }
 	}
 
-	public static boolean isCNPJ(String CNPJ) {
+	public static boolean isCNPJ(String CNPJ) throws IllegalArgumentException {
 		// considera-se erro CNPJ's formados por uma sequencia de numeros iguais
 		if (CNPJ.equals("00000000000000") || CNPJ.equals("11111111111111") ||
 				CNPJ.equals("22222222222222") || CNPJ.equals("33333333333333") ||
@@ -68,7 +72,7 @@ public class Validate {
 				CNPJ.equals("66666666666666") || CNPJ.equals("77777777777777") ||
 				CNPJ.equals("88888888888888") || CNPJ.equals("99999999999999") ||
 				(CNPJ.length() != 14))
-			return(false);
+			throw new IllegalArgumentException("CNPJ inválido");
 
 		char dig13, dig14;
 		int sm, i, r, num, peso;
@@ -113,14 +117,12 @@ public class Validate {
 			// Verifica se os dígitos calculados conferem com os dígitos informados.
 			if ((dig13 == CNPJ.charAt(12) && (dig14 == CNPJ.charAt(13))))
 				return (true);
-			else return (false);
-		} catch (InputMismatchException erro) {
-			return(false);
-		}
+			else 
+				//return(false);
+				throw new IllegalArgumentException("CNPJ inválido");
+	        } catch (InputMismatchException erro) {
+	            throw new IllegalArgumentException("CNPJ inválido");
+	        }
 	}
-
-
-
-
 
 }

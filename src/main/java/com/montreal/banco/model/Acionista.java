@@ -11,16 +11,16 @@ public abstract class Acionista {
 		this.valorTotalImoveis = 0.0;
 	}
 
-	public void adicionarValorImovel(Double valor) {
-		valorTotalImoveis += valor;
-	}
-
 	public Double getValorTotalImoveis() {
 		return valorTotalImoveis;
-	}
-
+	}	
+	
 	public String getNome() {
 		return nome;
+	}
+
+	public void setValorTotalImoveis(Double valorTotalImoveis) {
+		this.valorTotalImoveis = valorTotalImoveis;
 	}
 
 	public abstract String getIdentificacao();

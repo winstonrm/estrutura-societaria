@@ -16,10 +16,6 @@ public class EstruturaSocietaria {
 		empresas.add(empresa);
 	}
 
-	public void adicionarAcionista(Acionista acionista) {
-		acionistas.add(acionista);
-	}
-
 	public Set<Empresa> getEmpresas() {
 		return empresas;
 	}
